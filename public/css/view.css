@@ -1,5 +1,30 @@
-.step {
+.stepTitle {
 	color: #FFF;
+}
+
+p {
+	font-family: "Adelle-Sane", sans-serif;
+	size: 14px;
+}
+	
+.step {
+	margin: 0px;
+	padding: 4px;
+	padding-right: 10px;
+	color: #FFF;
+}
+a.stepLink:hover {
+	text-decoration: none;
+}
+
+.step:hover {
+	background-color: #FFF;
+	color: #647A88;
+	text-decoration: none;
+}
+
+h3.step {
+	margin-top: -4px;
 }
 
 html, body {
@@ -12,6 +37,8 @@ body {
 
 .div-step {
 	width: 200px;
+	padding-right: 0px;
+	padding-left: 0px;
 	height: 100%;
 	background-color: #647A88;
 }
@@ -27,7 +54,9 @@ body {
 }
 
 .tutorial {
+	padding-top: 50px;
 	height: 100%;
+	text-align: justify;
 }
 
 .div-arrow {

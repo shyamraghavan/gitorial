@@ -6,19 +6,21 @@ block head
 
 block body
     div(class="col-xs-2 div-step")
-        h1.step Title
+        h1.stepTitle Title
         - var steps = 8
         - for (var i=1; i<=steps; i++)
             if i == curStep
                 h3.step= i + '. Do Stuff'
             else
-                a(href=i): p(class="step")= i + '. step'
+                a(class="stepLink" href=i): p(class="step")= i + '. step'
      div(class="col-xs-1 div-arrow")
         if (curStep > 1)
             a(href= (curStep-1)): div.circle: span(class="glyphicon glyphicon-chevron-left")
-    div(class="col-xs-7 tutorial")
-        - var stepTitle = "Do Stuff"
-        h1= curStep + ". " + stepTitle
+    div(class="col-xs-7")
+        div.tutorial
+            h1 Title
+            hr
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
     div(class="col-xs-1 div-arrow pull-right")
         if (curStep < steps)
             a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
