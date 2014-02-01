@@ -22,7 +22,8 @@
     background-color: #647A88;
 }
 
-.navbar.navbar-fixed-top {
+.navbar.navbar-fixed-top,
+.navbar.navbar-static-top {
     border-bottom: 1px solid #937C66;
 }
 

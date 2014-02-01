@@ -8,6 +8,7 @@ lib-cov
 *.gz
 *.sw*
 .env
+config.json
 
 pids
 logs
@@ -15,6 +16,4 @@ results
 
 npm-debug.log
 node_modules
-
-.env
-config.json
+.sass-cache

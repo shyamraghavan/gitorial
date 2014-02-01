@@ -4,6 +4,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+<<<<<<< Updated upstream
 var GitHubApi = require("github");
 
 //===============================================
@@ -26,7 +27,7 @@ function getCommit(username, repo_name, sha){
 
 github.authenticate({
     type: "oauth",
-    token: "2b77797588cbb746f28823065c0ec5576b326b6f"
+    token: process.env.GITHUB_TOKEN
 });
 
 //===============================================
@@ -114,7 +115,8 @@ app.configure(function() {
 // home
 app.get('/', require('./routes/index')());
 // edit
-app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
+// app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
+app.get('/edit', require('./routes/edit')());
 // save
 app.post('/save', require('./routes/save')());
 // view

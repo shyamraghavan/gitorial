@@ -1,5 +1,5 @@
-module.exports = function(db) {
+module.exports = function() {
   return function (req, res) {
-  
+    res.render('edit');
   }
 };
