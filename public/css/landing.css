@@ -118,12 +118,18 @@ body {
     width: 360px;
     padding-right: 10px;
     text-align: center;
-    margin-top: 61px;
+    margin-top: 20px;
     margin-left: 100px;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 6px;
     border-radius: 3px;
+    opacity: 0.0;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 5.0s;
 }
 
 #desc p .special{
