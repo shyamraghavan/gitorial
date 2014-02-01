@@ -111,8 +111,7 @@ app.configure(function() {
 // home
 app.get('/', require('./routes/index')());
 // edit
-// app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
-app.get('/edit', require('./routes/edit')());
+app.get('/edit/:repo', ensureAuthenticated, require('./routes/edit')());
 // save
 app.post('/save', require('./routes/save')());
 // view
@@ -122,9 +121,9 @@ app.get('/view/:id', require('./routes/view')());
 /// load
 app.get('/load/:id', require('./routes/load')());
 
-app.get('/github/getList/:repo', require('./routes/github_list')());
-app.get('/github/getStep/:repo/:step', require('./routes/github_step')());
-app.get('/gitdatstuff/:repo', require('./routes/gitdatstuff')());
+app.get('/github/getList/:repo', ensureAuthenticated, require('./routes/github_list')());
+app.get('/github/getStep/:repo/:step', ensureAuthenticated, require('./routes/github_step')());
+app.get('/gitdatstuff/:repo', ensureAuthenticated, require('./routes/gitdatstuff')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 

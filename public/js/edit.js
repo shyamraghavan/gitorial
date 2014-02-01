@@ -23,7 +23,6 @@ app.currentStep = 1;
 
 app.compile = function(force) {
     var raw = app.editors[app.currentStep - 1].getValue();
-    console.log(raw);
     if(!force && !raw) {return;} // Quit unless we have to or we don't have anything
     console.log("├─┬ Compiling. . .");
     var preview = raw
@@ -33,7 +32,6 @@ app.compile = function(force) {
         .replace(/\\\]/g, '</script>');
     preview = preview
         .replace(/\[\[@\]\]/g, '~~~python\ndef foo():\n    print "This will be code"\n~~~')
-    console.log(preview);
     marked(preview, function(err, compiled) {
         if (err) {
             console.log('│ └─ error in compiling: ' + err);
@@ -50,7 +48,7 @@ app.compile = function(force) {
                 pane.scrollTop(bottom ? pane[0].scrollHeight : scroll);
             }]);
             // re-render Google prettyprint
-            $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + '</div>');
+            $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + ' - ' + app.repo + '</div>');
             $('#' + app.currentStep + ' .preview pre code').addClass("prettyprint");
             prettyPrint();
             console.log("│ └── compiling successful.");
@@ -126,6 +124,8 @@ app.save = function () {
 
 app.init = function () {
     console.log('│ Initializing app. . .');
+    app.repo = $('#gitorial-edit').data().repo;
+    app.profileUrl = $('#gitorial-edit').data().profileUrl;
 
     marked.setOptions(app.settings.marked);
 
@@ -145,6 +145,17 @@ app.init = function () {
       $('.CodeMirror').css('height', $(window).height() - 95);
     });
     CodeMirror.commands.save = app.compile;
+
+    $.ajax('/gitdatstuff/' + app.repo, {
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus + ' ' + errorThrown);
+      },
+      success: function(data, textStatus, jqXHR) {
+        app.numSteps = data.steps_count;
+        app.steps = data.steps;
+        console.log('Success! ' + app.numSteps);
+      }
+    })
 
     $('#save-button').click(app.save);
     $('#compile-button').click(function() { app.compile(true); });
