@@ -1,7 +1,8 @@
 extends base
 
 block nav
-	+navbar("home")
+	if (user)
+		+navbar("home")
 
 block head
 	if (user)
@@ -10,6 +11,7 @@ block head
 		title gitorial | join!
 
 block body
+
 	if (user)
 		link(rel="stylesheet" type="text/css" href="/css/home.css")
 
