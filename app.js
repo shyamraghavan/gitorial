@@ -72,7 +72,7 @@ function ensureAuthenticated(req, res, next) {
 
 // AWS
 var AWS = require('aws-sdk');
-AWS.config.loadFromPath('./config.json');
+AWS.Config(JSON.parse(process.env.AWS_CREDS));
 
 
 //===============================================
