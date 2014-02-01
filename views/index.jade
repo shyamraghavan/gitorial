@@ -1,6 +1,11 @@
 extends base
 block head
+	if (user)
+		title= 'gitorial | ' + user.name.givenName + '\'s profile'
+	else
+		title gitorial | join!
 
 block body
+	
 
 block script
