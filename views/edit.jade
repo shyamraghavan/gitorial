@@ -58,7 +58,9 @@ block body
          each step, i in steps
            .tab-pane.active(id=i)
              .tab-pane-inner
-               .editor.col-md-6= step
+               .editor.col-md-6
+                  form.editor-form
+                    textarea#editor-pane-1= step
                .preview.col-md-6
                  br
                  h1.text-center Click &ldquo;
