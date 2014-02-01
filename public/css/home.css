@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Menlo";
+  src: url(Menlo.ttf);
+}
+
+/* line 13, ../sass/home.scss */
+body {
+  padding-top: 70px;
+  font-family: "Menlo", sans-serif;
+}
+
+/* line 19, ../sass/home.scss */
+.logo {
+  width: 42%;
+}
+
+/* line 24, ../sass/home.scss */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 31, ../sass/home.scss */
+.tutorials-header {
+  text-align: center;
+}
+/* line 35, ../sass/home.scss */
+.tutorials-header h2 {
+  font-family: "Adelle-Sans", sans-serif;
+  color: #413931;
+}

@@ -1,0 +1,32 @@
+.navbar-inner {
+    float: left;
+}
+
+.navbar-inner a {
+    color: #647A88;
+}
+
+.navbar-header .brand img{
+    -webkit-transform:scale(1);
+    -webkit-transition-duration: 0.1s;
+}
+
+.navbar-header .brand img:hover{
+    -webkit-transform:scale(1.04);
+    height: 30px;
+    width: 33px;
+}
+
+.navbar-inner li a:hover{
+    color: #fff;
+    background-color: #647A88;
+}
+
+.navbar.navbar-fixed-top {
+    border-bottom: 1px solid #937C66;
+}
+
+.navbar-header {
+    padding-top: 10px;
+    padding-right: 20px;
+}
