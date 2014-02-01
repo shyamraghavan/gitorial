@@ -144,6 +144,7 @@ a:hover {
 
 .nav > li > a {
   font-size: 14px;
+  color: #647A88;
   font-family: "Menlo", monospace;
 }
 
@@ -167,4 +168,13 @@ pre.prettyprint {
   border-top-left-radius: 0px;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
+}
+.dropdown-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: Menlo;
+}
+.navbar.navbar-fixed-top,
+.navbar.navbar-static-top {
+    border-bottom: 1px solid #ddd;
 }
