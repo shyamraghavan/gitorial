@@ -151,11 +151,13 @@ app.init = function () {
         console.log(textStatus + ' ' + errorThrown);
       },
       success: function(data, textStatus, jqXHR) {
-        app.numSteps = data.steps_count;
+        app.numSteps = data.step_count;
         app.steps = data.steps;
-        console.log('Success! ' + app.numSteps);
+        app.steps.forEach(function(step, index, arr) {
+          console.log(step);
+        });
       }
-    })
+    });
 
     $('#save-button').click(app.save);
     $('#compile-button').click(function() { app.compile(true); });
