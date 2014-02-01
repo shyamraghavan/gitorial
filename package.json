@@ -1,0 +1,35 @@
+{
+  "name": "gitorial",
+  "version": "0.0.0",
+  "description": "Step-by-step tutorial maker with GitHub integration.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shyamraghavan/gitorial.git"
+  },
+  "keywords": [
+    "git",
+    "tutorial",
+    "gitorial",
+    "code",
+    "learn",
+    "step-by-step"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shyamraghavan/gitorial/issues"
+  },
+  "dependencies": {
+    "express": "~3.4.8",
+    "jade": "~1.1.5",
+    "mongodb": "~1.3.23",
+    "marked": "~0.3.1",
+    "monk": "~0.7.1",
+    "passport": "~0.2.0",
+    "passport-github": "~0.1.5"
+  }
+}
