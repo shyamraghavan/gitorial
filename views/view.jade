@@ -15,7 +15,7 @@ block body
                 li: a(href=i)= i + ". " + meta.steptitle[i]
               else
                 li: a(href=i)= i
-    div(class="div-arrow pull-right")
+    divr(class="div-arrow pull-right")
         if (curStep < meta.steps)
             a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
     div(class="div-arrow pull-left")
@@ -27,6 +27,7 @@ block body
         div(class="fb-comments"  data-href="http://gitorial.com/view/"+id+'/'+curStep data-numposts="5" data-colorscheme="light")
     div#fb-root
 
+block script
     script. 
         (function(d, s, id) {
            var js, fjs = d.getElementsByTagName(s)[0];
@@ -35,5 +36,3 @@ block body
            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1417476798496527";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));</script> 
-
-block script
