@@ -1,5 +1,6 @@
 var objects = [];
 var async = require('async');
+var request = require('request');
 
 var GitHubApi = require('github');
 
@@ -48,16 +49,20 @@ function log_screen(json, username, repo_name, res2)
           });
 
           list_this_sha = list_sha[j]
-          console.log(j + list_sha);
-          console.log(j + list_sha[1]);
-          console.log(j + list_sha[j]);
 
           github.repos.getCommit({
               user: username,
               repo: repo_name,
               sha: list_this_sha
           }, function(err, res) {
-              callback(null, res);
+              url = res.files[0].raw_url;
+
+              request(url, function(err, resp, body){
+                console.log(err);
+                console.log(body);
+
+                callback(null, body);
+              });
           });
         }
       }()
@@ -66,7 +71,7 @@ function log_screen(json, username, repo_name, res2)
 
   async.series(function_list, 
     function(err, results)
-    {
+    { 
       res2.send({step_count: results.length, steps: results});
     })
   
