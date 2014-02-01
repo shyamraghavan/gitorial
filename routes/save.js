@@ -9,7 +9,7 @@ module.exports = function(db) {
     meta.steptitle = new Object();
     for(var i = 1; i <= Number(meta.steps); i++) {
       console.log(i);
-      meta.steptitle[i] = req.body.steptitle[i];
+      meta.steptitle[i] = JSON.parse(req.body.steptitle)[i];
     }
     var params = {Bucket: 'gitorial', Key: (req.body.repo+'.json'), Body: JSON.stringify(meta)}
 
@@ -19,7 +19,7 @@ module.exports = function(db) {
     });
 
     for(var i = 1; i <= Number(meta.steps); i++) {
-      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: req.body.html[i]}, function(err, data) {
+      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: JSON.parse(req.body.html)[i]}, function(err, data) {
         if (err)
           console.log(err);
       });
