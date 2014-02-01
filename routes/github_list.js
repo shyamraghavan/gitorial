@@ -1,12 +1,11 @@
 function separate(json)
 {
-  
+  console.log(json[1]);
 }
 
 function log_screen(json)
 {
   list_sha = separate(json);
-  res.render('index', {user: {username: username_given}});
 }
 
 function getCommitsList(username, repo_name){
@@ -31,7 +30,9 @@ function getCommitsList(username, repo_name){
 
 module.exports = function(db) {
   return function (req, res) {
-    var username_given = req.user.username
+    var username_given = req.user.username;
+    var name_given = req.user.displayName;
     getCommitsList(req.user.username, req.param('repo'));
+    res.render('index', {user: {username: username_given, displayName: name_given}});
   }
 };
