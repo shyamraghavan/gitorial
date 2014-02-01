@@ -42,13 +42,13 @@ block body
     .tabbable.tabs-left
       ul.nav.nav-tabs
         li: a(href="#info", data-toggle="tab") Info
-        //- - each step, i in steps
-        //-     li: a(href="#" + i, data-toggle="tab")= 'Step ' + i + '.'
-        li.active: a.step(href="#1", data-toggle="tab", data-index="1") Step 1.
-        li: a.step(href="#2", data-toggle="tab", data-index="2") Step 2.
-        li: a.step(href="#3", data-toggle="tab", data-index="3") Step 3.
-        li: a.step(href="#4", data-toggle="tab", data-index="4") Step 4.
-        li: a.step(href="#5", data-toggle="tab", data-index="5") Step 5.
+        each step, i in steps
+          li: a(href="#" + (i + 1), class=(i === 0 ? 'active' : ''), data-toggle="tab")= 'Step ' + (i + 1)+ '.'
+        //- li.active: a.step(href="#1", data-toggle="tab", data-index="1") Step 1.
+        //- li: a.step(href="#2", data-toggle="tab", data-index="2") Step 2.
+        //- li: a.step(href="#3", data-toggle="tab", data-index="3") Step 3.
+        //- li: a.step(href="#4", data-toggle="tab", data-index="4") Step 4.
+        //- li: a.step(href="#5", data-toggle="tab", data-index="5") Step 5.
       .tab-content
         .tab-pane#info
           .tab-pane-inner
@@ -56,7 +56,7 @@ block body
               p Test
             .preview.col-md-6
          each step, i in steps
-           .tab-pane.active(id=i)
+           .tab-pane(id=(i + 1), class=(i === 0 ? 'active' : ''))
              .tab-pane-inner
                .editor.col-md-6
                   form.editor-form
