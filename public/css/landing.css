@@ -108,12 +108,11 @@ body {
 #desc {
     font-family: "adelle-sans";
     color: #647A88;
-    font-size: 15px;
-    width: 200px;
+    font-size: 20px;
+    width: 350px;
     margin-left: 10px;
-    margin-top: 80px;
     padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 0px;
     border-radius: 4px;
 }
 
@@ -122,14 +121,11 @@ body {
     font-family: "adelle-sans";
     border: 1px solid #647A88;
     color: #647A88;
-    font-size: 30px;
-    margin-left: 290px;
+    font-size: 40px;
     margin-top: 80px;
     padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 5px;
+    padding-left: 20px;
     border-radius: 4px;
-    float: right;
 }
 
 #github:hover{
