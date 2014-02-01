@@ -8,8 +8,6 @@ mixin navbar(active)
         ul.nav.navbar-nav
           li(class=(active=="about")?"active":"")
             a(href="/about/") about
-          li(class=(active=="contact")?"active":"")
-            a(href="/contact/") contact
           if (user)
             li(class=(active=="tutorial")?"active":"")
-              a(href="/tutorial/") tutorial
+              a(href="/howto/") howto
