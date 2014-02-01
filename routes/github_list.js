@@ -1,3 +1,9 @@
+function log_screen(json)
+{
+  console.log(json);
+  res.render('index', {user: {username: username_given}});
+}
+
 function getCommitsList(username, repo_name){
 
   var GitHubApi = require('github');
@@ -6,29 +12,21 @@ function getCommitsList(username, repo_name){
       version: "3.0.0",
       timeout: 5000
   });
+
+  var commitsList = [];
+
   github.repos.getCommits({
       user: username,
       repo: repo_name
   }, function(err, res) {
-      if (err != undefined)
-      {
-        var commitsList = res;
-      }
-      else
-      {
-        console.log(err);
-      }
-      
+        commitsList = JSON.stringify(res);
+        log_screen(commitsList);
   });
-
-  return function callback(){return commitsList;};
 }
 
-module.exports = function(db, repo_name) {
+module.exports = function(db) {
   return function (req, res) {
     var username_given = req.user.username
     getCommitsList(req.user.username, req.param('repo'));
-    console.log(req.user);
-    res.render('index', {user: {username: username_given}});
   }
 };
