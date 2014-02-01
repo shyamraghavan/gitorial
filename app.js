@@ -123,7 +123,6 @@ app.get('/load/:id', require('./routes/load')());
 
 app.get('/github/getList/:repo', ensureAuthenticated, require('./routes/github_list')());
 app.get('/github/getStep/:repo/:step', ensureAuthenticated, require('./routes/github_step')());
-app.get('/gitdatstuff/:repo', ensureAuthenticated, require('./routes/gitdatstuff')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 
