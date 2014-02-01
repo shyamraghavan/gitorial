@@ -1,0 +1,10 @@
+/* line 7, ../sass/home.scss */
+body {
+  padding-top: 70px;
+}
+
+/* line 12, ../sass/home.scss */
+.jumbotron {
+  background-color: #647a88;
+  color: #413931;
+}
