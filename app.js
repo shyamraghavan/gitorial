@@ -43,23 +43,20 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-// var callbackURL;
-// if (process.env.TEXDOWN_PRODUCTION) {
-//     console.log("Production environment found.");
-//     callbackURL = "http://texdown.org/auth/google/callback"
-// } else {
-//     console.log("Development environment found.");
-//     callbackURL = "http://127.0.0.1:3000/auth/google/callback"
-// }
+var callbackURL;
+if (process.env.NODE_ENV == 'production') {
+    console.log("Production environment found.");
+    callbackURL = "http://www.gitorial.com/auth/github/callback"
+} else {
+    console.log("Development environment found.");
+    callbackURL = "http://localhost:3000/auth/github/callback"
+}
 
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/callback"
+    callbackURL: callbackURL
 }, function(accessToken, refreshToken, profile, done) {
-//   User.findOrCreate({ githubId: profile.id }, function (err, user) {
-//     return done(err, user);
-//   });
   process.nextTick(function () {
       return done(null, profile);
   });
