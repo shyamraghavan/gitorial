@@ -1,0 +1,15 @@
+$book-color: #937c66;
+$git-color: #413931;
+$orial-color: #98591a;
+$blue-color: #647a88;
+
+body
+{
+	padding-top: 70px;
+}
+
+.jumbotron
+{
+	background-color: $blue-color;
+	color: $git-color;
+}
