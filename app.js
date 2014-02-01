@@ -43,19 +43,19 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-var callbackURL;
-if (process.env.NODE_ENV == 'production') {
-    console.log("Production environment found.");
-    callbackURL = "http://www.gitorial.com/auth/github/callback"
-} else {
-    console.log("Development environment found.");
-    callbackURL = "http://localhost:3000/auth/github/callback"
-}
+// var callbackURL;
+// if (process.env.NODE_ENV == 'production') {
+//     console.log("Production environment found.");
+//     callbackURL = "http://www.gitorial.com/auth/github/callback"
+// } else {
+//     console.log("Development environment found.");
+//     callbackURL = "http://localhost:3000/auth/github/callback"
+// }
 
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: callbackURL
+    callbackURL: "http://localhost:3000/auth/github/callback"
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function () {
       return done(null, profile);

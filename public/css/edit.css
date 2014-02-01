@@ -170,10 +170,11 @@ a:hover {
 /* line 145, ../sass/edit.scss */
 .nav > li > a {
   font-size: 14px;
+  color: #647A88;
   font-family: "Menlo", monospace;
 }
 
-/* line 150, ../sass/edit.scss */
+/* line 151, ../sass/edit.scss */
 .pre-header {
   height: 30px;
   border: 1px solid #bbb;
@@ -188,7 +189,7 @@ a:hover {
   border-top-left-radius: 7px;
 }
 
-/* line 159, ../sass/edit.scss */
+/* line 160, ../sass/edit.scss */
 .pre-header p {
   padding-top: 5px;
   color: rgba(0, 0, 0, 0.7);
@@ -196,10 +197,23 @@ a:hover {
   text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
 
-/* line 165, ../sass/edit.scss */
+/* line 166, ../sass/edit.scss */
 pre.prettyprint {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
+}
+
+/* line 172, ../sass/edit.scss */
+.dropdown-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: Menlo;
+}
+
+/* line 178, ../sass/edit.scss */
+.navbar.navbar-fixed-top,
+.navbar.navbar-static-top {
+  border-bottom: 1px solid #ddd;
 }
