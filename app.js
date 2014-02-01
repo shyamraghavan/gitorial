@@ -122,6 +122,8 @@ app.post('/save', require('./routes/save')());
 app.get('/view/:id/:curStep', require('./routes/view')());
 // list github commits
 app.get('/view/:id', require('./routes/view')());
+/// load
+app.get('/load/:id', require('./routes/load')());
 
 app.get('/github/getList/:repo', require('./routes/github_list')());
 app.get('/github/getStep/:repo/:step', require('./routes/github_step')());

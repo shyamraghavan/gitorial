@@ -25,6 +25,29 @@ module.exports = function(db) {
       });
     }
 
+    try {
+      s3.getObject({Bucket: 'gitorial', Key: req.user.username}, function(error, data) {
+        if (data == null) {
+          values = new Object();
+        } else {
+          values = JSON.parse(data.Body.toString());
+        }
+        var state = new Object();
+        state.title = req.body.title;
+        state.url = "view/"+req.body.repo;
+
+
+        var repo = req.body.repo;
+        values.repo = JSON.stringify(state);
+
+        s3.putObject({Bucket: 'gitorial', Key: req.user.username, Body: JSON.stringify(values)}, function(err, d) {
+          if (err)
+            console.log(err);
+        });
+      });
+    } catch (err) {
+      console.log(err);
+    }
     res.redirect('/');
   }
 };
