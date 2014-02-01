@@ -46,6 +46,11 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/');
 }
 
+// AWS
+var AWS = require('aws-sdk');
+AWS.config.loadFromPath('./config.json');
+
+
 //===============================================
 // config
 //===============================================
