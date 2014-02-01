@@ -5,13 +5,14 @@ block nav
 
 block head
 	if (user)
-		title= 'gitorial | ' + user.name+ '\'s profile'
+		title= 'gitorial | ' + user.name + '\'s profile'
 	else
 		title gitorial | join!
 
 block body
 	if (user)
 		p Hello World
+		p= user
 	else
 		link(rel="stylesheet" type="text/css" href="/css/home.css")
 
