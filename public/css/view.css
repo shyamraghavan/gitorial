@@ -1,3 +1,7 @@
+body {
+	background-color: #fafafa;
+}
+
 p {
 	font-family: "freight-text-pro", sans-serif;
 	font-size: 22px;
@@ -13,7 +17,7 @@ h1 {
 	margin: 0px;
 	padding: 4px;
 	padding-right: 10px;
-	color: #FFF;
+	color: #fafafa;
 }
 
 a.stepLink:hover {
@@ -21,7 +25,7 @@ a.stepLink:hover {
 }
 
 .step:hover {
-	background-color: #FFF;
+	background-color: #fafafa;
 	color: #647A88;
 	text-decoration: none;
 }
@@ -59,7 +63,7 @@ body {
 	width: 50px;
 	height: 50px;
 	margin-top: 70px;
-	background-color: white;
+	background-color: #fafafa;
 	padding: 17px;
 	color: #647A88;
 	position: fixed;
@@ -82,7 +86,7 @@ body {
 }
 
 .circle:hover {
-	color: #FFF;
+	color: #fafafa;
 	background-color: #647A88;
 }
 
@@ -93,4 +97,9 @@ body {
 .navbar.navbar-fixed-top,
 .navbar.navbar-static-top {
     border-bottom: 1px solid #d5d5d5;
+    font-family: menlo;
+}
+
+.nav-tabs>li {
+	font-family: menlo;
 }
