@@ -38,3 +38,6 @@
     padding-top: 10px;
     padding-right: 20px;
 }
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    font-weight: bold;
+}
