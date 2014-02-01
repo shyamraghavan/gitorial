@@ -20,7 +20,7 @@ module.exports = function(db) {
     });
 
     for(var i = 1; i <= Number(meta.steps); i++) {
-      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: JSON.parse(req.body.html)[i]}, function(err, data) {
+      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: JSON.parse(eval(req.body.html))[i]}, function(err, data) {
         if (err)
           console.log(err);
       });
