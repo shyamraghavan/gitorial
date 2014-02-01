@@ -21,107 +21,97 @@ app.settings = {
 }
 app.currentStep = 1;
 
-app.compile = function(force) {
-    var raw = app.editors[app.currentStep - 1].getValue();
-    if(!force && !raw) {return;} // Quit unless we have to or we don't have anything
-    console.log("├─┬ Compiling. . .");
-    var preview = raw
-        .replace(/\\\(/g, '<script type="math/tex">')
-        .replace(/\\\)/g, '</script>')
-        .replace(/\\\[/g, '<script type="math/tex; mode=display">')
-        .replace(/\\\]/g, '</script>');
-    preview = preview
-        .replace(/\[\[@\]\]/g, '~~~\n' + app.steps[app.currentStep - 1] + '\n~~~');
-    marked(preview, function(err, compiled) {
-        if (err) {
-            console.log('│ └─ error in compiling: ' + err);
-        } else {
-            var pane = $('#' + app.currentStep + ' .preview');
-            var scroll = pane.scrollTop();
-            var bottom = false;
-            if(scroll + pane.innerHeight() === pane[0].scrollHeight) {
-                bottom = true;
-            }
-            pane.html(compiled);
-            // re-render math
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub], [function() {
-                pane.scrollTop(bottom ? pane[0].scrollHeight : scroll);
-            }]);
-            // re-render Google prettyprint
-            $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + ' - ' + app.repo + '</div>');
-            $('#' + app.currentStep + ' .preview pre code').addClass("prettyprint");
-            prettyPrint();
-            console.log("│ └── compiling successful.");
-        }
-    });
+app.compile = function(force, whichstep) {
+  var oldstep;
+  if (whichstep) {
+    oldstep = app.currentStep;
+    app.currentStep = whichstep;
+  }
+  var raw = app.editors[app.currentStep - 1].getValue();
+  if(!force && !raw) {return;} // Quit unless we have to or we don't have anything
+  console.log("├─┬ Compiling. . .");
+  var preview = raw
+    .replace(/\\\(/g, '<script type="math/tex">')
+    .replace(/\\\)/g, '</script>')
+    .replace(/\\\[/g, '<script type="math/tex; mode=display">')
+    .replace(/\\\]/g, '</script>');
+  preview = preview
+    .replace(/\[\[@\]\]/g, '~~~\n' + app.steps[app.currentStep - 1] + '\n~~~');
+  marked(preview, function(err, compiled) {
+    if (err) {
+      console.log('│ └─ error in compiling: ' + err);
+    } else {
+      var pane = $('#' + app.currentStep + ' .preview');
+      var scroll = pane.scrollTop();
+      var bottom = false;
+      if(scroll + pane.innerHeight() === pane[0].scrollHeight) {
+        bottom = true;
+      }
+      pane.html(compiled);
+      // re-render math
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub], [function() {
+        pane.scrollTop(bottom ? pane[0].scrollHeight : scroll);
+      }]);
+      // re-render Google prettyprint
+      $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + ' - ' + app.repo + '</div>');
+      $('#' + app.currentStep + ' .preview pre code').addClass("prettyprint");
+      prettyPrint();
+      console.log("│ └── compiling successful.");
+    }
+  });
+  if(whichstep) {
+    app.currentStep = oldstep;
+  }
 };
 
 app.save = function () {
+  console.log('├─┬ Saving...');
+  var numsteps = app.steps.length;
+  for(var )
 
-    console.log('├─┬ Saving...');
+  app.data.file.text = app.editor.getValue();
 
-    if (!app.data.user.id) {
-        app.animateAlert({
-            header: 'Whoops!', 
-            body: 'You have to be signed in to save files.', 
-            type: 'danger', 
-        });
-        console.log('│ └── error in saving: user not signed in.');
-        return;
-    }
-    app.data.file.filename = $('#filename').val();
-    if (!app.data.file.filename) {
-        app.animateAlert({
-            header: 'Whoops!', 
-            body: 'Please enter a filename.', 
-            type: 'danger', 
-        });
-            console.log('│ └── error in saving: no filename provided.');
-        return;
-    }
-    app.data.file.text = app.editor.getValue();
-
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (request.readyState === 4) {
-            var statMesg = JSON.parse(request.responseText).statMesg;
-            var fileid = JSON.parse(request.responseText).fileid;
-            if (request.status === 200) {
-                if(app.settings.autosave) {
-                    $('#save-status').html(' Saved');
-                } else {
-                    app.animateAlert({
-                        header:'Success!', 
-                        body: 'Your file was saved.'
-                    });
-                }
-                if(/\/edit$/g.test(document.URL)) {
-                    setTimeout(function() {
-                        if(document.URL.charAt(document.URL.length - 1) === '/') {
-                            window.location.href = document.URL + fileid;
-                        } else {
-                            window.location.href = document.URL + '/' + fileid;
-                        }
-                    }, 1500);
-                }
-                console.log('│ └── save successful.');
-            } else {
-                app.animateAlert({
-                    header:'Oh no!', 
-                    body: statMesg + " (error: " + request.status + ")", 
-                    type: 'danger'
-                });
-                if(app.settings.autosave) {
-                    $('#save-status').html(' Unsaved');
-                }
-                console.log('│ └── error in saving: ' + statMesg + ' (error: ' + request.status + ')');
-            }
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (request.readyState === 4) {
+      var statMesg = JSON.parse(request.responseText).statMesg;
+      var fileid = JSON.parse(request.responseText).fileid;
+      if (request.status === 200) {
+        if(app.settings.autosave) {
+          $('#save-status').html(' Saved');
+        } else {
+          app.animateAlert({
+            header:'Success!', 
+            body: 'Your file was saved.'
+          });
         }
-    }
-    request.open('POST', '/save', true);
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.send(JSON.stringify(app.data));
-};
+        if(/\/edit$/g.test(document.URL)) {
+          setTimeout(function() {
+            if(document.URL.charAt(document.URL.length - 1) === '/') {
+              window.location.href = document.URL + fileid;
+            } else {
+              window.location.href = document.URL + '/' + fileid;
+            }
+          }, 1500);
+        }
+        console.log('│ └── save successful.');
+      } else {
+        app.animateAlert({
+          header:'Oh no!', 
+          body: statMesg + " (error: " + request.status + ")", 
+          type: 'danger'
+        });
+        if(app.settings.autosave) {
+          $('#save-status').html(' Unsaved');
+        }
+        console.log('│ └── error in saving: ' + statMesg + ' (error: ' + request.status + ')');
+            }
+            }
+            }
+            request.open('POST', '/save', true);
+            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            request.send(JSON.stringify(app.data));
+            };
 
 app.init = function () {
     console.log('│ Initializing app. . .');
