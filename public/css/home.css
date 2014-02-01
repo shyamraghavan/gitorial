@@ -26,11 +26,16 @@ hr {
   text-align: center;
 }
 
-/* line 36, ../sass/home.scss */
+/* line 35, ../sass/home.scss */
+a.new {
+  margin-top: 1px;
+}
+
+/* line 40, ../sass/home.scss */
 .tutorials-header {
   width: 100%;
 }
-/* line 39, ../sass/home.scss */
+/* line 43, ../sass/home.scss */
 .tutorials-header h2 {
   margin-top: 0px;
   font-family: "Adelle-Sans", sans-serif;
