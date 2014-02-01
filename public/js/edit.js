@@ -75,6 +75,7 @@ app.save = function () {
   data.repo = app.repo;
   data.title = app.repo;
   data.steps = app.steps.length;
+  data.html = [];
   $('.preview').each(function(index) {
     data.html.push($(this).html());
   });
