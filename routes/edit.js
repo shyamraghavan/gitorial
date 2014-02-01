@@ -57,8 +57,7 @@ function log_screen(json, username, repo_name, res2, req2)
           }, function(err, res) {
               url = res.files[0].raw_url;
 
-              request(url, function(err, resp, body){]
-
+              request(url, function(err, resp, body){
                 callback(null, body);
               });
           });
