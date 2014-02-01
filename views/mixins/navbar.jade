@@ -2,10 +2,9 @@ mixin navbar(active)
 	.navbar.navbar-fixed-top
 		.container
 			.navbar-header
-				a.navbar-brand(href="/") gitorial
-			.navbar-inner
 				a(class="brand", href="/")
-					img(src="/images/gitorial_book.png")
+				img(src="/images/gitorial_book.png")
+			.navbar-inner
 				ul.nav.navbar-nav
 					li(class=(active=="about")?"active":"")
 						a(href="/about/") about
