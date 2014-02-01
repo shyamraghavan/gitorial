@@ -70,8 +70,8 @@ function log_screen(json, username, repo_name, res2, req2)
     function(err, results)
     { 
       user_stuff = req2.user;
-      res2.render("edit", {user: user_stuff, step_count: results.length, steps: results});
-    })
+      res2.render("edit", {user: user_stuff, step_count: results.length, steps: results, repo: req2.params.repo});
+    });
   
 }
 

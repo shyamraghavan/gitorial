@@ -31,7 +31,7 @@ app.compile = function(force) {
         .replace(/\\\[/g, '<script type="math/tex; mode=display">')
         .replace(/\\\]/g, '</script>');
     preview = preview
-        .replace(/\[\[@\]\]/g, '~~~python\ndef foo():\n    print "This will be code"\n~~~')
+        .replace(/\[\[@\]\]/g, '~~~\n' + app.steps[app.currentStep - 1] + '\n~~~');
     marked(preview, function(err, compiled) {
         if (err) {
             console.log('│ └─ error in compiling: ' + err);
@@ -57,6 +57,7 @@ app.compile = function(force) {
 };
 
 app.save = function () {
+
     console.log('├─┬ Saving...');
 
     if (!app.data.user.id) {
@@ -146,18 +147,14 @@ app.init = function () {
     });
     CodeMirror.commands.save = app.compile;
 
-//     $.ajax('/gitdatstuff/' + app.repo, {
-//       error: function(jqXHR, textStatus, errorThrown) {
-//         console.log(textStatus + ' ' + errorThrown);
-//       },
-//       success: function(data, textStatus, jqXHR) {
-//         app.numSteps = data.step_count;
-//         app.steps = data.steps;
-//       }
-//     });
-
     $('#save-button').click(app.save);
     $('#compile-button').click(function() { app.compile(true); });
+
+    app.steps = [];
+    $('#data div').each(function(index) {
+      app.steps.push($(this).html());
+      $(this).remove();
+    });
 
     console.log('├── app intialized.');
 }
