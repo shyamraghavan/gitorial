@@ -1,6 +1,11 @@
+function separate(json)
+{
+  
+}
+
 function log_screen(json)
 {
-  console.log(json);
+  list_sha = separate(json);
   res.render('index', {user: {username: username_given}});
 }
 
