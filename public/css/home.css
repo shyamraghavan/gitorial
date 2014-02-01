@@ -10,7 +10,30 @@ body {
 }
 
 /* line 19, ../sass/home.scss */
+hr {
+  color: #937c66;
+}
+
+/* line 24, ../sass/home.scss */
 .logo {
+  width: 42%;
+}
+
+/* line 29, ../sass/home.scss */
+.center {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+}
+
+/* line 36, ../sass/home.scss */
+.tutorials-header {
+  text-align: center;
+}
+/* line 40, ../sass/home.scss */
+.tutorials-header h2 {
+  font-family: "Adelle-Sans", sans-serif;
+  border-color: #413931;
+  border-top-color: #413931;
+  color: #413931;
 }

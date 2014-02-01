@@ -1,23 +1,25 @@
 extends base
+block nav
+    +navbar("view")
 block head
     link(rel="stylesheet" type="text/css" href="/css/view.css")
 
 block body
-    nav(class="navbar navbar-default navbar-static-top" role="navigation")
-        div.container
-            div.navbar-header
-                button(type="button" class="navbar-togle" data-toggle="collapse" data-target="#navbar-collapse-1")
-                    span.sr-only Toggle navigation
-                a.navbar-brand gitorial
-            div(class="collapse navbar-collapse" id="navbar-collapse-1")
-    div(class="col-xs-4 div-step")
+    div(class="col-xs-2 div-step")
         h1.step Title
         - var steps = 8
         - var curStep = 3
         - for (var i=1; i<=steps; i++)
             if i == curStep
-                h3.step= i + '. step'
+                h3.step= i + '. Do Stuff'
             else
-                p(class="step")= i + '. step'
+                a(href=i): p(class="step")= i + '. step'
+    div(class="col-xs-1 div-arrow")
+        div.circle: span(class="glyphicon glyphicon-chevron-left")
+    div(class="col-xs-7 tutorial")
+        - var stepTitle = "Do Stuff"
+        h1= curStep + ". " + stepTitle
+    div(class="col-xs-1 div-arrow pull-right")
+        div.circle: span(class="glyphicon glyphicon-chevron-right")
 
 block script

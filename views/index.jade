@@ -5,7 +5,7 @@ block nav
 
 block head
 	if (user)
-		title= 'gitorial | ' + user.name.givenName + '\'s profile'
+		title= 'gitorial | ' + user.name+ '\'s profile'
 	else
 		title gitorial | join!
 
@@ -15,10 +15,13 @@ block body
 	else
 		link(rel="stylesheet" type="text/css" href="/css/home.css")
 
-		div.logo
+		div.logo.center
 			img(src="/images/gitorial_header.png")
 
+		hr
+
+		div.tutorials-header.center
+			h2 my tutorials
+
 		div.tutorials
-
-
 block script
