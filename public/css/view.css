@@ -4,7 +4,7 @@
 
 p {
 	font-family: "Adelle-Sane", sans-serif;
-	size: 14px;
+	size: 10px;
 }
 	
 .step {
@@ -13,6 +13,7 @@ p {
 	padding-right: 10px;
 	color: #FFF;
 }
+
 a.stepLink:hover {
 	text-decoration: none;
 }

@@ -18,7 +18,8 @@ block body
         if (curStep > 1)
             a(href= (curStep-1)): div.circle: span(class="glyphicon glyphicon-chevron-left")
     div(class="col-xs-7")
-        div.tutorial= data
+        div.tutorial
+            != data
     div(class="col-xs-1 div-arrow pull-right")
         if (curStep < steps)
             a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
