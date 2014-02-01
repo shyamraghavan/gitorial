@@ -1,12 +1,9 @@
 extends base
 
-include mixins/navbar
-
 block nav
 	+navbar("home")
 
 block head
-
 	if (user)
 		title= 'gitorial | ' + user.name.givenName + '\'s profile'
 	else
