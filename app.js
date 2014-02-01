@@ -126,6 +126,8 @@ app.get('/github/getList/:repo', require('./routes/github_list')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 
+app.get('/about', require('./routes/about')());
+
 // authentication
 app.get('/auth/github', passport.authenticate('github'));
 app.get('/auth/github/callback', 
