@@ -146,18 +146,15 @@ app.init = function () {
     });
     CodeMirror.commands.save = app.compile;
 
-    $.ajax('/gitdatstuff/' + app.repo, {
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log(textStatus + ' ' + errorThrown);
-      },
-      success: function(data, textStatus, jqXHR) {
-        app.numSteps = data.step_count;
-        app.steps = data.steps;
-        app.steps.forEach(function(step, index, arr) {
-          console.log(step);
-        });
-      }
-    });
+//     $.ajax('/gitdatstuff/' + app.repo, {
+//       error: function(jqXHR, textStatus, errorThrown) {
+//         console.log(textStatus + ' ' + errorThrown);
+//       },
+//       success: function(data, textStatus, jqXHR) {
+//         app.numSteps = data.step_count;
+//         app.steps = data.steps;
+//       }
+//     });
 
     $('#save-button').click(app.save);
     $('#compile-button').click(function() { app.compile(true); });

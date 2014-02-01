@@ -55,65 +55,65 @@ block body
             .editor.col-md-6
               p Test
             .preview.col-md-6
-        //- - each step, i in steps
-        //-     .tab-pane.active(id=i)
-        //-       .tab-pane-inner
-        //-         .editor.col-md-6= step
-        //-         .preview.col-md-6
-        //-           br
-        //-           h1.text-center Click &ldquo;
-        //-             span.glyphicon.glyphicon-refresh
-        //-             |  Compile&rdquo; to see your notes!
-        .tab-pane.active#1 
-          .tab-pane-inner
-            .editor.col-md-6
-              form.editor-form
-                textarea#editor-pane-1 This is text.
-            .preview.col-md-6
-              br
-              h1.text-center Click &ldquo;
-                span.glyphicon.glyphicon-refresh
-                |  Compile&rdquo; to see your notes!
-        .tab-pane#2
-          .tab-pane-inner
-            .editor.col-md-6
-              form.editor-form
-                textarea#editor-pane-2 This is more text.
-            .preview.col-md-6
-              br
-              h1.text-center Click &ldquo;
-                span.glyphicon.glyphicon-refresh
-                |  Compile&rdquo; to see your notes!
-        .tab-pane#3 
-          .tab-pane-inner
-            .editor.col-md-6
-              form.editor-form
-                textarea#editor-pane-3 This is better text.
-            .preview.col-md-6
-              br
-              h1.text-center Click &ldquo;
-                span.glyphicon.glyphicon-refresh
-                |  Compile&rdquo; to see your notes!
-        .tab-pane#4 
-          .tab-pane-inner
-            .editor.col-md-6
-              form.editor-form
-                textarea#editor-pane-4 This is four text.
-            .preview.col-md-6
-              br
-              h1.text-center Click &ldquo;
-                span.glyphicon.glyphicon-refresh
-                |  Compile&rdquo; to see your notes!
-        .tab-pane#5 
-          .tab-pane-inner
-            .editor.col-md-6
-              form.editor-form
-                textarea#editor-pane-5 Finally five text.
-            .preview.col-md-6
-              br
-              h1.text-center Click &ldquo;
-                span.glyphicon.glyphicon-refresh
-                |  Compile&rdquo; to see your notes!
+         each step, i in steps
+           .tab-pane.active(id=i)
+             .tab-pane-inner
+               .editor.col-md-6= step
+               .preview.col-md-6
+                 br
+                 h1.text-center Click &ldquo;
+                   span.glyphicon.glyphicon-refresh
+                   |  Compile&rdquo; to see your notes!
+        //- .tab-pane.active#1 
+          //- .tab-pane-inner
+            //- .editor.col-md-6
+              //- form.editor-form
+                //- textarea#editor-pane-1 This is text.
+            //- .preview.col-md-6
+              //- br
+              //- h1.text-center Click &ldquo;
+                //- span.glyphicon.glyphicon-refresh
+                //- |  Compile&rdquo; to see your notes!
+        //- .tab-pane#2
+          //- .tab-pane-inner
+            //- .editor.col-md-6
+              //- form.editor-form
+                //- textarea#editor-pane-2 This is more text.
+            //- .preview.col-md-6
+              //- br
+              //- h1.text-center Click &ldquo;
+                //- span.glyphicon.glyphicon-refresh
+                //- |  Compile&rdquo; to see your notes!
+        //- .tab-pane#3 
+          //- .tab-pane-inner
+            //- .editor.col-md-6
+              //- form.editor-form
+                //- textarea#editor-pane-3 This is better text.
+            //- .preview.col-md-6
+              //- br
+              //- h1.text-center Click &ldquo;
+                //- span.glyphicon.glyphicon-refresh
+                //- |  Compile&rdquo; to see your notes!
+        //- .tab-pane#4 
+          //- .tab-pane-inner
+            //- .editor.col-md-6
+              //- form.editor-form
+                //- textarea#editor-pane-4 This is four text.
+            //- .preview.col-md-6
+              //- br
+              //- h1.text-center Click &ldquo;
+                //- span.glyphicon.glyphicon-refresh
+                //- |  Compile&rdquo; to see your notes!
+        //- .tab-pane#5 
+          //- .tab-pane-inner
+            //- .editor.col-md-6
+              //- form.editor-form
+                //- textarea#editor-pane-5 Finally five text.
+            //- .preview.col-md-6
+              //- br
+              //- h1.text-center Click &ldquo;
+                //- span.glyphicon.glyphicon-refresh
+                //- |  Compile&rdquo; to see your notes!
 block script
   script(src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
   script(src="/codemirror/codemirror.js")
