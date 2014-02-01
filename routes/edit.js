@@ -72,7 +72,7 @@ function log_screen(json, username, repo_name, res2)
   async.series(function_list, 
     function(err, results)
     { 
-      res2.send({step_count: results.length, steps: results});
+      res2.render("edit", {step_count: results.length, steps: results});
     })
   
 }
