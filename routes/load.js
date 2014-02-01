@@ -8,6 +8,7 @@ module.exports = function(db) {
     var params = {Bucket: 'gitorial', Key: (req.param("id")+".json")};
     try {
       s3.getObject(params, function(error, data) {
+        console.log("makeView");
         makeView(req, res, JSON.parse(data.Body.toString()), s3);
       });
     } catch (err) {
@@ -22,6 +23,30 @@ function makeView(req, res, meta, s3) {
     out.title = meta.title;
     out.steps = meta.steps;
     out.steptitle = meta.steptitle;
+
+    out.html = [];
+    function_list = [];
+    for(var i=1; i<=Number(meta.steps); i++) {
+      function_list.push(
+          function() {
+            var j = i;
+            return function(callback) {
+              var params = {Bucket: 'gitorial', Key: (req.param("id")+"-"+j)};
+              s3.getObject(params, function(error, data) {
+                callback(null, data.Body.toString());
+              });
+            }
+          }()
+        );
+    }
+
+    async.series(function_list,
+        function(err, data) {
+          out.html = data;
+          res.end(JSON.stringify(out));
+      });
+}
+/*
     for(var i=1; i<meta.steps; i++) {
       var params = {Bucket: 'gitorial', Key: (req.param("id")+"-"+ i)};
       try {
@@ -35,4 +60,4 @@ function makeView(req, res, meta, s3) {
     }
 
     res.send(out);
-}
+}*/
