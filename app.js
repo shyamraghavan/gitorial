@@ -120,6 +120,8 @@ app.post('/save', require('./routes/save')());
 // view
 app.get('/view/:id/:curStep', require('./routes/view')());
 // list github commits
+app.get('/view/:id', require('./routes/view')());
+
 app.get('/github/getList/:repo', require('./routes/github_list')());
 // delete
 app.delete('/delete', require('./routes/delete')());

@@ -7,13 +7,12 @@ block head
 
 block body
     div(class="col-xs-2 div-step")
-        h1.stepTitle Title
-        - var steps = 8
-        - for (var i=1; i<=steps; i++)
+        h1.stepTitle= meta.title 
+        - for (var i=1; i<=Number(meta.steps); i++)
             if i == curStep
-                h3.step= i + '. Do Stuff'
+                h3.step= i + " " + meta.steptitle[i]
             else
-                a(class="stepLink" href=i): p(class="step")= i + '. step'
+                a(class="stepLink" href=i): p(class="step")= i + ' ' + meta.steptitle[i]
      div(class="col-xs-1 div-arrow")
         if (curStep > 1)
             a(href= (curStep-1)): div.circle: span(class="glyphicon glyphicon-chevron-left")
@@ -21,7 +20,7 @@ block body
         div.tutorial
             != data
     div(class="col-xs-1 div-arrow pull-right")
-        if (curStep < steps)
+        if (curStep < meta.steps)
             a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
 
 block script
