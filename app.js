@@ -44,12 +44,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 var callbackURL;
-if (app.get('env') == 'development') {
-    console.log("Development environment found.");
-    callbackURL = "http://localhost:3000/auth/github/callback"
-} else {
+if (process.env.NODE_ENV == 'production') {
     console.log("Production environment found.");
     callbackURL = "http://www.gitorial.com/auth/github/callback"
+} else {
+    console.log("Development environment found.");
+    callbackURL = "http://localhost:3000/auth/github/callback"
 }
 
 passport.use(new GitHubStrategy({
