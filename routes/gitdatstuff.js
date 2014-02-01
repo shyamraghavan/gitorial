@@ -1,4 +1,12 @@
 var objects = [];
+var async = require('async');
+
+var GitHubApi = require('github');
+
+var github = new GitHubApi({
+  version: "3.0.0",
+  timeout: 5000
+});
 
 function separate(json)
 {
@@ -9,7 +17,7 @@ function separate(json)
     results.push(json[i]["sha"]);
   }
 
-  console.log(results);
+  //console.log(results);
   return results;
 }
 
@@ -18,52 +26,53 @@ function add_objects(object)
   objects.push(object);
 }
 
-function httpGet(theUrl)
+function log_screen(json, username, repo_name, res2)
 {
-    var xmlHttp = null;
-
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false );
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-function find_stuff(json)
-{
-  length = json.step_count;
-  for (i = 0; i < length; i++)
-  {
-    response = httpGet(json["steps"][i]);
-    console.log(response);
-  }
-}
-
-function log_screen(json, username, repo_name)
-{
-  var GitHubApi = require('github');
-
-  var github = new GitHubApi({
-      version: "3.0.0",
-      timeout: 5000
-  });
-
   var final_object = {
     step_count: json.length,
     steps: []
   };
 
   list_sha = separate(json);
+  function_list = [];
 
-  for (i = 0; i < json.length; i++)
+  for (var i = 0; i < list_sha.length; i++)
   {
-    final_object.steps.push({url:""});
-    final_object.steps[i].url = json[i].url;
+    function_list.push(
+      function() {
+        var j = i;
+        return function(callback){
+          github.authenticate({
+            type: "oauth",
+            token: "2b77797588cbb746f28823065c0ec5576b326b6f"
+          });
+
+          list_this_sha = list_sha[j]
+          console.log(j + list_sha);
+          console.log(j + list_sha[1]);
+          console.log(j + list_sha[j]);
+
+          github.repos.getCommit({
+              user: username,
+              repo: repo_name,
+              sha: list_this_sha
+          }, function(err, res) {
+              callback(null, res);
+          });
+        }
+      }()
+    );
   }
+
+  async.series(function_list, 
+    function(err, results)
+    {
+      res2.send({step_count: results.length, steps: results});
+    })
   
-  return find_stuff(final_object);
 }
 
-function getCommitsList(username, repo_name){
+function getCommitsList(username, repo_name, res2){
 
   var GitHubApi = require('github');
 
@@ -84,9 +93,7 @@ function getCommitsList(username, repo_name){
       repo: repo_name
   }, function(err, res) {
       commitsList = res;
-      console.log(err);
-      console.log(res);
-      log_screen(commitsList, username, repo_name);
+      log_screen(commitsList, username, repo_name, res2);
   });
 }
 
@@ -94,6 +101,6 @@ module.exports = function(db) {
   return function (req, res) {
     var username_given = req.user.username;
     var name_given = req.user.displayName;
-    getCommitsList(req.user.username, req.param('repo'));
+    getCommitsList(req.user.username, req.param('repo'), res);
   }
 };
