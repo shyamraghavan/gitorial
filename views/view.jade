@@ -6,17 +6,15 @@ block head
     title= meta.title
 
 block body
-    ul(class="nav nav-tabs nav-justified")
+    ul(class="nav nav-tabs tabs-left")
         -for(var i=1; i<=Number(meta.steps); i++)
             if i == curStep
-                li.active: a(href=i)= i + " " + meta.steptitle[i]
+                li.active: a(href=i)= i + ". " + meta.steptitle[i]
             else
-                li: a(href=i)= i + " " + meta.steptitle[i]
-    //- for (var i=1; i<=Number(meta.steps); i++)
-         if i == curStep
-              h3.step= i + " " + meta.steptitle[i]
-         else
-             a(class="stepLink" href=i): p(class="step")= i + ' ' + meta.steptitle[i]
+              if Math.abs(i-curStep) < 2
+                li: a(href=i)= i + ". " + meta.steptitle[i]
+              else
+                li: a(href=i)= i
     div(class="div-arrow pull-right")
         if (curStep < meta.steps)
             a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
@@ -26,5 +24,16 @@ block body
     div(class="container")
         div.tutorial
             != data
+        div(class="fb-comments"  data-href="http://gitorial.com/view/"+id+'/'+curStep data-numposts="5" data-colorscheme="light")
+    div#fb-root
+
+    script. 
+        (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1417476798496527";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));</script> 
 
 block script

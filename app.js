@@ -26,7 +26,7 @@ function getCommit(username, repo_name, sha){
 
 github.authenticate({
     type: "oauth",
-    token: process.env.GITHUB_TOKEN
+    token: "2b77797588cbb746f28823065c0ec5576b326b6f"
 });
 
 //===============================================
@@ -124,6 +124,8 @@ app.get('/view/:id/:curStep', require('./routes/view')());
 app.get('/view/:id', require('./routes/view')());
 
 app.get('/github/getList/:repo', require('./routes/github_list')());
+app.get('/github/getStep/:repo/:step', require('./routes/github_step')());
+app.get('/gitdatstuff/:repo', require('./routes/gitdatstuff')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 

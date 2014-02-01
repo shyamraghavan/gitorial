@@ -22,6 +22,8 @@ hr
 
 .logo
 {
+	padding:0px;
+	margin:0px;
 	height: 100px;
 	background-image:url('/images/background.png');
 	background-repeat: repeat;
@@ -50,4 +52,28 @@ a.new {
 		color: $git-color;
 	}
 	
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.form-control:focus {
+  border-color: #866b51;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+  background-color: #647A88;
+  color: white;
+  border-color: #647A88;
+}
+
+.btn-default {
+  color: #647A88;
+  background-color: white;
+  border-radius: 0px;
+  border-color: #647A88;
 }

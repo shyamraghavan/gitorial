@@ -17,12 +17,15 @@ block body
 	if (user)
 		link(rel="stylesheet" type="text/css" href="/css/home.css")
 
-		div.logo
-		hr
 
 		div.container
 			div.tutorials-header.pull-left
-				a(class="btn btn-default pull-right new" href="#") New
+				//a(class="btn btn-default pull-right new" href="#" id="new") New
+				form(class="navbar-form navbar-left pull-right")
+					div.form-group
+						input(type="text" class="form-control" id="repo" placeholder="github repo")
+					button(type="button" class="btn btn-default" onClick="window.location.href='edit/'+$('#repo').val()") New
+
 				h2: small= user.displayName.toLowerCase() + '\'s tutorials'
 				if (tutorials)
 					table.table
