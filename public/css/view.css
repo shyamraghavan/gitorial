@@ -24,7 +24,7 @@ a.stepLink:hover {
 }
 
 h3.step {
-	margin-top: -4px;
+	margin-top: -2px;
 }
 
 html, body {
@@ -48,7 +48,7 @@ body {
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
-	margin-top: 100%;
+	margin-top: 70px;
 	background-color: rgba(100,122,136,0.1);
 	padding: 17px;
 }
