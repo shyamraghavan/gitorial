@@ -89,7 +89,7 @@ app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
 // save
 app.post('/save', require('./routes/save')());
 // view
-app.get('/view/:id', require('./routes/view')());
+app.get('/view/:id/:curStep', require('./routes/view')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 

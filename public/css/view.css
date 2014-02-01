@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 }
 
 .div-step {
@@ -31,9 +31,12 @@ body {
 }
 
 .div-arrow {
+	width: 80px;
+	padding-right: 10px;
 	height: 100%;
 }
 
 .circle:hover {
+	color: #FFF;
 	background-color: #647A88;
 }
