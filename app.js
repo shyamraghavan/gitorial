@@ -9,21 +9,16 @@ var app = express();
 // authentication
 //===============================================
 var passport = require('passport');
-// Have to do this with GitHub
-//
-// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-// 
-// var GOOGLE_CLIENT_ID = process.env.TEXDOWN_GOOGLE_CLIENT_ID;
-// var GOOGLE_CLIENT_SECRET = process.env.TEXDOWN_GOOGLE_CLIENT_SECRET; 
+var GitHubStrategy = require('passport-github').Strategy;
 
-// passport.serializeUser(function(user, done) {
-//   done(null, user);
-// });
-// 
-// passport.deserializeUser(function(obj, done) {
-//   done(null, obj);
-// });
-// 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
 // var callbackURL;
 // if (process.env.TEXDOWN_PRODUCTION) {
 //     console.log("Production environment found.");
@@ -32,16 +27,19 @@ var passport = require('passport');
 //     console.log("Development environment found.");
 //     callbackURL = "http://127.0.0.1:3000/auth/google/callback"
 // }
-// 
-// passport.use(new GoogleStrategy({
-//     clientID: GOOGLE_CLIENT_ID,
-//     clientSecret: GOOGLE_CLIENT_SECRET,
-//     callbackURL: callbackURL
-// }, function(accessToken, refreshToken, profile, done) {
-//     process.nextTick(function () {
-//         return done(null, profile);
-//     });
-// }));
+
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/github/callback"
+}, function(accessToken, refreshToken, profile, done) {
+//   User.findOrCreate({ githubId: profile.id }, function (err, user) {
+//     return done(err, user);
+//   });
+  process.nextTick(function () {
+      return done(null, profile);
+  });
+}));
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -96,22 +94,17 @@ app.get('/view/:id', require('./routes/view')());
 app.delete('/delete', require('./routes/delete')());
 
 // authentication
-// app.get('/auth/google',
-//   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }),
-//   function(req, res){
-//   });
-// 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.redirect('/');
-//   });
-// 
-// app.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
-// 
+app.get('/auth/github', passport.authenticate('github'));
+app.get('/auth/github/callback', 
+    passport.authenticate('github', { failureRedirect: '/' }),
+    function(req, res) {
+      res.redirect('/');
+    });
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 app.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
