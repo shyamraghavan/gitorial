@@ -3,6 +3,7 @@ block nav
     +navbar("view")
 block head
     link(rel="stylesheet" type="text/css" href="/css/view.css")
+    link(rel="stylesheet" type="text/css" href="/css/monokai.css")
     title= meta.title
 
 block body
@@ -25,6 +26,7 @@ block body
     div#fb-root
 
 block script
+    script(src="/js/prettify.js")
     script.
         (function(d, s, id) {
            var js, fjs = d.getElementsByTagName(s)[0];
