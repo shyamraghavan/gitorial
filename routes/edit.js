@@ -27,7 +27,7 @@ function add_objects(object)
   objects.push(object);
 }
 
-function log_screen(json, username, repo_name, res2)
+function log_screen(json, username, repo_name, res2, req2)
 {
   var final_object = {
     step_count: json.length,
@@ -72,12 +72,13 @@ function log_screen(json, username, repo_name, res2)
   async.series(function_list, 
     function(err, results)
     { 
-      res2.render("edit", {step_count: results.length, steps: results});
+      user_stuff = req2.user;
+      res2.render("edit", {user: user_stuff, step_count: results.length, steps: results});
     })
   
 }
 
-function getCommitsList(username, repo_name, res2){
+function getCommitsList(username, repo_name, res2, req2){
 
   var GitHubApi = require('github');
 
@@ -98,7 +99,7 @@ function getCommitsList(username, repo_name, res2){
       repo: repo_name
   }, function(err, res) {
       commitsList = res;
-      log_screen(commitsList, username, repo_name, res2);
+      log_screen(commitsList, username, repo_name, res2, req2);
   });
 }
 
@@ -106,6 +107,6 @@ module.exports = function(db) {
   return function (req, res) {
     var username_given = req.user.username;
     var name_given = req.user.displayName;
-    getCommitsList(req.user.username, req.param('repo'), res);
+    getCommitsList(req.user.username, req.param('repo'), res, req);
   }
 };
