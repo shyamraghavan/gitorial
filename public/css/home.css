@@ -47,3 +47,24 @@ a.new {
   border-top-color: #413931;
   color: #413931;
 }
+
+.form-control {
+  border-radius: 0px;
+}
+
+.form-control:focus {
+  border-color: #866b51;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+  background-color: #647A88;
+  color: white;
+}
+
+.btn-default {
+  color: #647A88;
+  border-radius: 0px;
+}
