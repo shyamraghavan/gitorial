@@ -67,51 +67,15 @@ app.compile = function(force, whichstep) {
 app.save = function () {
   console.log('├─┬ Saving...');
   var numsteps = app.steps.length;
-  for(var )
+  for(var i = 1; i <= numsteps; i++) {
+    app.compile(true, i);
+  }
 
-  app.data.file.text = app.editor.getValue();
-
-  var request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
-    if (request.readyState === 4) {
-      var statMesg = JSON.parse(request.responseText).statMesg;
-      var fileid = JSON.parse(request.responseText).fileid;
-      if (request.status === 200) {
-        if(app.settings.autosave) {
-          $('#save-status').html(' Saved');
-        } else {
-          app.animateAlert({
-            header:'Success!', 
-            body: 'Your file was saved.'
-          });
-        }
-        if(/\/edit$/g.test(document.URL)) {
-          setTimeout(function() {
-            if(document.URL.charAt(document.URL.length - 1) === '/') {
-              window.location.href = document.URL + fileid;
-            } else {
-              window.location.href = document.URL + '/' + fileid;
-            }
-          }, 1500);
-        }
-        console.log('│ └── save successful.');
-      } else {
-        app.animateAlert({
-          header:'Oh no!', 
-          body: statMesg + " (error: " + request.status + ")", 
-          type: 'danger'
-        });
-        if(app.settings.autosave) {
-          $('#save-status').html(' Unsaved');
-        }
-        console.log('│ └── error in saving: ' + statMesg + ' (error: ' + request.status + ')');
-            }
-            }
-            }
-            request.open('POST', '/save', true);
-            request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            request.send(JSON.stringify(app.data));
-            };
+  var compileds = [];
+  $('.preview').each(function(index) {
+    // TODO ACCUMULATE THE DATA
+  });
+}
 
 app.init = function () {
     console.log('│ Initializing app. . .');
