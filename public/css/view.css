@@ -1,6 +1,10 @@
 p {
 	font-family: "freight-text-pro", sans-serif;
-	size: 11px;
+	font-size: 15px;
+}
+
+h1 {
+	font-family: "Adelle-Sans", sans-serif;
 }
 	
 .step {
@@ -22,6 +26,10 @@ a.stepLink:hover {
 
 .navbar {
 	background-color: #FFF;
+}
+
+.nav-tabs {
+	margin-top: 10px;
 }
 
 h3.step {
@@ -55,6 +63,7 @@ body {
 
 .tutorial {
 	text-align: justify;
+	max-width: 800px;
 }
 
 .div-arrow {
