@@ -33,5 +33,6 @@ hr {
 /* line 40, ../sass/home.scss */
 .tutorials-header h2 {
   font-family: "Adelle-Sans", sans-serif;
+  border-color: #413931;
   border-top-color: #413931;
 }
