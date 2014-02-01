@@ -4,6 +4,30 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var GitHubApi = require("github");
+
+//===============================================
+// github
+//===============================================
+var github = new GitHubApi({
+  version: "3.0.0",
+  timeout: 5000
+});
+
+function getCommit(username, repo_name, sha){
+  github.repos.getCommit({
+    user: username,
+    repo: repo_name,
+    sha: sha
+  }, function(err, res) {
+    console.log(JSON.stringify(res));
+  });
+}
+
+github.authenticate({
+    type: "oauth",
+    token: "2b77797588cbb746f28823065c0ec5576b326b6f"
+});
 
 //===============================================
 // authentication
@@ -90,6 +114,8 @@ app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
 app.post('/save', require('./routes/save')());
 // view
 app.get('/view/:id/:curStep', require('./routes/view')());
+
+app.get('/github/getList/:repo', require('./routes/github_list')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 
