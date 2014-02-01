@@ -72,7 +72,7 @@ function ensureAuthenticated(req, res, next) {
 
 // AWS
 var AWS = require('aws-sdk');
-AWS.Config(JSON.parse(process.env.AWS_CREDS));
+AWS.config.update({region: 'us-west-2'});
 
 
 //===============================================
