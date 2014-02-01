@@ -76,7 +76,7 @@ app.save = function () {
   data.title = app.repo;
   data.steps = app.steps.length;
   $('.preview').each(function(index) {
-    data.html = $(this).html();
+    data.html.push($(this).html());
   });
 
   $.ajax('/save', {
