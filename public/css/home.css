@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Menlo";
-  src: url(Menlo.ttf);
+  src: url(Menlo-Regular.ttf);
 }
 
 /* line 13, ../sass/home.scss */
@@ -26,12 +26,9 @@ hr {
   text-align: center;
 }
 
-/* line 36, ../sass/home.scss */
-.tutorials-header {
-  text-align: center;
-}
-/* line 40, ../sass/home.scss */
+/* line 38, ../sass/home.scss */
 .tutorials-header h2 {
+  padding-left: 20px;
   font-family: "Adelle-Sans", sans-serif;
   border-color: #413931;
   border-top-color: #413931;

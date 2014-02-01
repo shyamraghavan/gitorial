@@ -19,11 +19,10 @@ block body
 
 		div.logo.center
 			img(src="/images/gitorial_header.png")
-
 		hr
 
-		div.tutorials-header.center
-			h2= user.username.toLowerCase() + '\'s tutorials'
+		div.tutorials-header.pull-left
+			h2: small= user.displayName.toLowerCase() + '\'s tutorials'
 
 		div.tutorials
 	else
