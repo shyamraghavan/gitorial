@@ -1,21 +1,16 @@
 mixin navbar(active)
-	.navbar.navbar-inverse.navbar-fixed-top
+	.navbar.navbar-fixed-top
 		.container
 			.navbar-header
-				button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-collapse")
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
 				a.navbar-brand(href="/") gitorial
 			.navbar-inner
 				a(class="brand", href="/")
 					img(src="/images/gitorial_book.png")
-			.navbar-collapse.collapse
 				ul.nav.navbar-nav
-				li(class=(active=="about")?"active":"")
-					a(href="/about/") about
-				li(class=(active=="contact")?"active":"")
-					a(href="/contact/") contact
-				if (user)
-					li(class=(active=="tutorial")?"active":"")
-						a(href="/tutorial/") tutorial
+					li(class=(active=="about")?"active":"")
+						a(href="/about/") about
+					li(class=(active=="contact")?"active":"")
+						a(href="/contact/") contact
+					if (user)
+						li(class=(active=="tutorial")?"active":"")
+							a(href="/tutorial/") tutorial
