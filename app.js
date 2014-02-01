@@ -119,7 +119,7 @@ app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
 app.post('/save', require('./routes/save')());
 // view
 app.get('/view/:id/:curStep', require('./routes/view')());
-
+// list github commits
 app.get('/github/getList/:repo', require('./routes/github_list')());
 // delete
 app.delete('/delete', require('./routes/delete')());

@@ -6,7 +6,7 @@ block nav
 
 block head
 	if (user)
-		title= 'gitorial | ' + user.displayName+ '\'s profile'
+		title= 'gitorial | ' + user.username.toLowerCase() + '\'s profile'
 		link(rel="stylesheet" type="text/css" href="/css/main.css")
 	else
 		link(rel="stylesheet", type="text/css", href="/css/landing.css")
