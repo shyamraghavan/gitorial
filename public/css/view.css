@@ -1,5 +1,31 @@
-.step {
+.stepTitle {
 	color: #FFF;
+}
+
+p {
+	font-family: "Adelle-Sane", sans-serif;
+	size: 10px;
+}
+	
+.step {
+	margin: 0px;
+	padding: 4px;
+	padding-right: 10px;
+	color: #FFF;
+}
+
+a.stepLink:hover {
+	text-decoration: none;
+}
+
+.step:hover {
+	background-color: #FFF;
+	color: #647A88;
+	text-decoration: none;
+}
+
+h3.step {
+	margin-top: -2px;
 }
 
 html, body {
@@ -7,11 +33,13 @@ html, body {
 }
 
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 }
 
 .div-step {
 	width: 200px;
+	padding-right: 0px;
+	padding-left: 0px;
 	height: 100%;
 	background-color: #647A88;
 }
@@ -21,19 +49,24 @@ body {
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
-	margin-top: 100%;
+	margin-top: 70px;
 	background-color: rgba(100,122,136,0.1);
 	padding: 17px;
 }
 
 .tutorial {
+	padding-top: 50px;
 	height: 100%;
+	text-align: justify;
 }
 
 .div-arrow {
+	width: 80px;
+	padding-right: 10px;
 	height: 100%;
 }
 
 .circle:hover {
+	color: #FFF;
 	background-color: #647A88;
 }

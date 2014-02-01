@@ -29,6 +29,6 @@
     "marked": "~0.3.1",
     "passport": "~0.2.0",
     "passport-github": "~0.1.5",
-    "dbox": "~0.6.3"
+    "aws-sdk": "~2.0.0-rc9"
   }
 }

@@ -46,6 +46,11 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/');
 }
 
+// AWS
+var AWS = require('aws-sdk');
+AWS.config.loadFromPath('./config.json');
+
+
 //===============================================
 // config
 //===============================================
@@ -89,7 +94,7 @@ app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
 // save
 app.post('/save', require('./routes/save')());
 // view
-app.get('/view/:id', require('./routes/view')());
+app.get('/view/:id/:curStep', require('./routes/view')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 

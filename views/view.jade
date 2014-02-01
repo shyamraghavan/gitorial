@@ -3,23 +3,25 @@ block nav
     +navbar("view")
 block head
     link(rel="stylesheet" type="text/css" href="/css/view.css")
+    title Title
 
 block body
     div(class="col-xs-2 div-step")
-        h1.step Title
+        h1.stepTitle Title
         - var steps = 8
-        - var curStep = 3
         - for (var i=1; i<=steps; i++)
             if i == curStep
                 h3.step= i + '. Do Stuff'
             else
-                a(href=i): p(class="step")= i + '. step'
-    div(class="col-xs-1 div-arrow")
-        div.circle: span(class="glyphicon glyphicon-chevron-left")
-    div(class="col-xs-7 tutorial")
-        - var stepTitle = "Do Stuff"
-        h1= curStep + ". " + stepTitle
+                a(class="stepLink" href=i): p(class="step")= i + '. step'
+     div(class="col-xs-1 div-arrow")
+        if (curStep > 1)
+            a(href= (curStep-1)): div.circle: span(class="glyphicon glyphicon-chevron-left")
+    div(class="col-xs-7")
+        div.tutorial
+            != data
     div(class="col-xs-1 div-arrow pull-right")
-        div.circle: span(class="glyphicon glyphicon-chevron-right")
+        if (curStep < steps)
+            a(href= ((parseInt(curStep)+1)).toString()): div.circle: span(class="glyphicon glyphicon-chevron-right")
 
 block script
