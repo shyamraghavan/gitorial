@@ -7,14 +7,14 @@
 }
 
 .navbar-header .brand img{
+    height: 29px;
+    width: 32px;
     -webkit-transform:scale(1);
     -webkit-transition-duration: 0.1s;
 }
 
 .navbar-header .brand img:hover{
-    -webkit-transform:scale(1.04);
-    height: 30px;
-    width: 33px;
+    -webkit-transform:scale(1.1);
 }
 
 .navbar-inner li a:hover{
