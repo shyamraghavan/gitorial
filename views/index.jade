@@ -20,19 +20,20 @@ block body
 
 		div.container
 			div.tutorials-header.pull-left
-				//a(class="btn btn-default pull-right new" href="#" id="new") New
-				form(class="navbar-form navbar-left pull-right")
+				//a(class="btn btn-default pull-left new" href="#" id="new") New
+				h2(class="text-center"): small= 'make a new gitorial'
+				form(class="navbar-form center")
 					div.form-group
 						input(type="text" class="form-control" id="repo" placeholder="github repo")
 					button(type="button" class="btn btn-default" onClick="window.location.href='edit/'+$('#repo').val()") New
 
-				h2: small= user.displayName.toLowerCase() + '\'s tutorials'
+				h2(class="text-center" style="padding-top: 40px;"): small= user.displayName.toLowerCase() + '\'s tutorials'
 				if (tutorials)
 					table.table
 						for tut in tutorials
 							tr: td: a(href=tut.url)= tut.title
 				else
-					p you don't have any tutorials :(
+					p(class="text-center") you don't have any tutorials :(
 
 	else
 		
