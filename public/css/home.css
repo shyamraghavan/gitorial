@@ -16,26 +16,28 @@ hr {
 
 /* line 24, ../sass/home.scss */
 .logo {
-  width: 42%;
+  height: 100px;
+  background-image: url("/images/background.png");
+  background-repeat: repeat;
 }
 
-/* line 29, ../sass/home.scss */
+/* line 31, ../sass/home.scss */
 .center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-/* line 35, ../sass/home.scss */
+/* line 37, ../sass/home.scss */
 a.new {
   margin-top: 1px;
 }
 
-/* line 40, ../sass/home.scss */
+/* line 42, ../sass/home.scss */
 .tutorials-header {
   width: 100%;
 }
-/* line 43, ../sass/home.scss */
+/* line 45, ../sass/home.scss */
 .tutorials-header h2 {
   margin-top: 0px;
   font-family: "Adelle-Sans", sans-serif;
