@@ -5,11 +5,6 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk(process.env.GITORIAL_MONGOLAB_URL);
-db.ObjectID = mongo.ObjectID;
-
 //===============================================
 // authentication
 //===============================================
@@ -90,13 +85,13 @@ app.configure(function() {
 //===============================================
 
 // home
-app.get('/', require('./routes/index')(db));
+app.get('/', require('./routes/index')());
 // edit
-app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')(db));
+app.get('/edit/:id', ensureAuthenticated, require('./routes/edit')());
 // save
-app.post('/save', require('./routes/save')(db));
+app.post('/save', require('./routes/save')());
 // delete
-app.delete('/delete', require('./routes/delete')(db));
+app.delete('/delete', require('./routes/delete')());
 
 // authentication
 // app.get('/auth/google',
