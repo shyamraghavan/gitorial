@@ -12,8 +12,7 @@ function getCommitsList(username, repo_name){
   }, function(err, res) {
       if (err != undefined)
       {
-        var commitsList = res.length;
-        console.log(commitsList);
+        var commitsList = res;
       }
       else
       {
@@ -22,7 +21,7 @@ function getCommitsList(username, repo_name){
       
   });
 
-  return function callback(){console.log(commitsList.length); console.log(commitsList);};
+  return function callback(){return commitsList;};
 }
 
 module.exports = function(db, repo_name) {
