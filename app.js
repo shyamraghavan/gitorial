@@ -44,12 +44,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 // var callbackURL;
-// if (process.env.TEXDOWN_PRODUCTION) {
+// if (process.env.NODE_ENV == 'production') {
 //     console.log("Production environment found.");
-//     callbackURL = "http://texdown.org/auth/google/callback"
+//     callbackURL = "http://www.gitorial.com/auth/github/callback"
 // } else {
 //     console.log("Development environment found.");
-//     callbackURL = "http://127.0.0.1:3000/auth/google/callback"
+//     callbackURL = "http://localhost:3000/auth/github/callback"
 // }
 
 passport.use(new GitHubStrategy({
@@ -57,9 +57,6 @@ passport.use(new GitHubStrategy({
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/github/callback"
 }, function(accessToken, refreshToken, profile, done) {
-//   User.findOrCreate({ githubId: profile.id }, function (err, user) {
-//     return done(err, user);
-//   });
   process.nextTick(function () {
       return done(null, profile);
   });
@@ -122,6 +119,8 @@ app.post('/save', require('./routes/save')());
 app.get('/view/:id/:curStep', require('./routes/view')());
 // list github commits
 app.get('/view/:id', require('./routes/view')());
+/// load
+app.get('/load/:id', require('./routes/load')());
 
 app.get('/github/getList/:repo', require('./routes/github_list')());
 app.get('/github/getStep/:repo/:step', require('./routes/github_step')());

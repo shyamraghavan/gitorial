@@ -11,28 +11,44 @@ block nav
       .navbar-header
         a(class="brand", href="/")
           img(src="/images/gitorial_svg.svg")
-      .navbar-inner
+      .navbar-collapse.collapse
         ul.nav.navbar-nav
-          li(class=(active=="about")?"active":"")
-            a(href="/about/") about
-          li(class=(active=="contact")?"active":"")
-            a(href="/contact/") contact
-          if (user)
-            li(class=(active=="tutorial")?"active":"")
-              a(href="/tutorial/") tutorial
+          li: a#save-button(title="Save")
+            span.glyphicon.glyphicon-floppy-disk
+            span#save-status  Save
+          li: a#compile-button(title="Compile")
+            span.glyphicon.glyphicon-refresh
+            span#save-status  Compile
+          li: a#discard-button(href="/", title="Discard")
+            span.glyphicon.glyphicon-trash
+            span#save-status  Discard
+        if (user)
+          ul.nav.navbar-nav.navbar-right
+            li#me.dropdown: a.dropdown-toggle(data-toggle="dropdown")
+              img.avatar(src=user._json.avatar_url)
+              | &nbsp;&nbsp;Me
+              b.caret
+              ul.dropdown-menu
+                li: a(href="/")
+                  |  My Tutorials
+                li: a(href="/edit")
+                  |  New
+                li.divider
+                li: a(href="/logout")
+                  |  Logout
 
 block body
-  #gitorial-edit
+  #gitorial-edit(data-profileUrl=user.profileUrl)
     .tabbable.tabs-left
       ul.nav.nav-tabs
         li: a(href="#info", data-toggle="tab") Info
         //- - each step, i in steps
         //-     li: a(href="#" + i, data-toggle="tab")= 'Step ' + i + '.'
-        li.active: a(href="#1", data-toggle="tab") Step 1.
-        li: a(href="#2", data-toggle="tab") Step 2.
-        li: a(href="#3", data-toggle="tab") Step 3.
-        li: a(href="#4", data-toggle="tab") Step 4.
-        li: a(href="#5", data-toggle="tab") Step 5.
+        li.active: a.step(href="#1", data-toggle="tab", data-index="1") Step 1.
+        li: a.step(href="#2", data-toggle="tab", data-index="2") Step 2.
+        li: a.step(href="#3", data-toggle="tab", data-index="3") Step 3.
+        li: a.step(href="#4", data-toggle="tab", data-index="4") Step 4.
+        li: a.step(href="#5", data-toggle="tab", data-index="5") Step 5.
       .tab-content
         .tab-pane#info
           .tab-pane-inner
@@ -99,6 +115,7 @@ block body
                 span.glyphicon.glyphicon-refresh
                 |  Compile&rdquo; to see your notes!
 block script
+  script(src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
   script(src="/codemirror/codemirror.js")
   script(src="/codemirror/addon/mode/overlay.js")
   script(src="/codemirror/addon/search/search.js")
@@ -110,6 +127,7 @@ block script
   script(src="/codemirror/mode/css/css.js")
   script(src="/codemirror/mode/htmlmixed/htmlmixed.js")
   script(src="/codemirror/mode/clike/clike.js")
+  script(src="/codemirror/keymap/vim.js")
   script(src="/js/prettify.js")
   script(src="/js/jquery.typing-0.2.0.min.js")
   script(src="/js/marked.js")

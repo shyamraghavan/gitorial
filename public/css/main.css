@@ -2,7 +2,8 @@
     float: left;
 }
 
-.navbar-inner a {
+.navbar-inner a,
+.navbar-nav a {
     color: #647A88;
 }
 
@@ -17,9 +18,15 @@
     -webkit-transform:scale(1.1);
 }
 
-.navbar-inner li a:hover{
+.navbar-nav li a:hover,
+.nav .open>a,
+.nav .open>a:hover {
     color: #fff;
     background-color: #647A88;
+}
+
+.navbar-nav li a:active {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 .navbar.navbar-fixed-top,
@@ -30,4 +37,7 @@
 .navbar-header {
     padding-top: 10px;
     padding-right: 20px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    font-weight: bold;
 }

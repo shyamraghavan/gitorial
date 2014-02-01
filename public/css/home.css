@@ -48,10 +48,12 @@ a.new {
   color: #413931;
 }
 
+/* line 57, ../sass/home.scss */
 .form-control {
   border-radius: 0px;
 }
 
+/* line 61, ../sass/home.scss */
 .form-control:focus {
   border-color: #866b51;
   -webkit-box-shadow: none;
@@ -59,12 +61,24 @@ a.new {
   border-radius: 2px;
 }
 
+/* line 68, ../sass/home.scss */
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
   background-color: #647A88;
   color: white;
+  border-color: #647A88;
 }
 
+/* line 74, ../sass/home.scss */
 .btn-default {
   color: #647A88;
+  background-color: white;
   border-radius: 0px;
+  border-color: #647A88;
+}
+
+/* line 81, ../sass/home.scss */
+.dropdown-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: Menlo;
 }
