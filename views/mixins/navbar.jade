@@ -8,6 +8,17 @@ mixin navbar(active)
         ul.nav.navbar-nav
           li(class=(active=="about")?"active":"")
             a(href="/about/") about
-          if (user)
-            li(class=(active=="tutorial")?"active":"")
-              a(href="/howto/") howto
+        if (user)
+          ul.nav.navbar-nav.navbar-right
+            li#me.dropdown: a.dropdown-toggle(data-toggle="dropdown")
+              img.avatar(src=user._json.avatar_url)
+              | &nbsp;&nbsp;Me
+              b.caret
+              ul.dropdown-menu
+                li: a(href="/")
+                  |  My Tutorials
+                li: a(href="/edit")
+                  |  New
+                li.divider
+                li: a(href="/logout")
+                  |  Logout

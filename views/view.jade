@@ -6,7 +6,7 @@ block head
     title= meta.title
 
 block body
-    ul(class="nav nav-tabs tabs-left")
+    ul(class="nav nav-tabs tabs-left container")
         -for(var i=1; i<=Number(meta.steps); i++)
             if i == curStep
                 li.active: a(href=i)= i + ". " + meta.steptitle[i]
