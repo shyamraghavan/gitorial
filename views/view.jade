@@ -9,11 +9,8 @@ block body
     ul(class="nav nav-tabs tabs-left container")
         -for(var i=1; i<=Number(meta.steps); i++)
             if i == curStep
-                li.active: a(href=i)= i + ". " + meta.steptitle[i]
+                li.active: a(href=i)= i
             else
-              if Math.abs(i-curStep) < 2
-                li: a(href=i)= i + ". " + meta.steptitle[i]
-              else
                 li: a(href=i)= i
     divr(class="div-arrow pull-right")
         if (curStep < meta.steps)

@@ -4,12 +4,13 @@ module.exports = function(db) {
     var s3 = new AWS.S3();
 
     var meta = new Object();
+    meta.repo = req.body.repo;
     meta.title = req.body.title;
     meta.steps = req.body.steps;
     meta.steptitle = new Object();
     for(var i = 1; i <= Number(meta.steps); i++) {
       console.log(i);
-      meta.steptitle[i] = JSON.parse(req.body.steptitle)[i];
+      meta.steptitle[i] = "";
     }
     var params = {Bucket: 'gitorial', Key: (req.body.repo+'.json'), Body: JSON.stringify(meta)}
 
