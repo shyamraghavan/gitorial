@@ -2,7 +2,8 @@
     float: left;
 }
 
-.navbar-inner a {
+.navbar-inner a,
+.navbar-nav a {
     color: #647A88;
 }
 
@@ -17,7 +18,10 @@
     -webkit-transform:scale(1.1);
 }
 
-.navbar-inner li a:hover{
+.navbar-nav li a:hover,
+.navbar-nav li a:active,
+.nav .open>a,
+.nav .open>a:hover {
     color: #fff;
     background-color: #647A88;
 }
