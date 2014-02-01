@@ -23,7 +23,14 @@ block body
 
 		div.container
 			div.tutorials-header.pull-left
+				a(class="btn btn-default pull-right" href="#") New
 				h2: small= user.displayName.toLowerCase() + '\'s tutorials'
+				if (tutorials)
+					table.table
+						for tut in tutorials
+							tr: td: a(href=tut.url)= tut.title
+				else
+					p you don't have any tutorials :(
 
 	else
 		
