@@ -1,0 +1,142 @@
+html{
+
+}
+
+body {
+    position:absolute;
+    left:50%;
+    top:15%;
+    margin-left:-340px;
+    margin-top:10px;
+}
+
+#whiteOne{
+    position: absolute;
+    top: 0px;
+    z-index: 6;
+    -webkit-animation-name: slideTop;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 2s;
+}
+
+@-webkit-keyframes slideTop{
+    0% {
+        left: 165px;
+    }
+    100% {
+        left: 500px;
+        top: 0px;
+    }
+}
+
+#tagline {
+    width: 20px;
+    font-family: "source-code-pro";
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 32px;
+    color: #647A88;
+    position: absolute;
+    left: 496px;
+    top: 43px;
+    z-index: 9999;
+    opacity: .0;
+    -webkit-animation-name: FadeIn;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 4.6s;
+}
+
+#tagline2{
+    -webkit-animation-name: FadeIn;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 4s;
+}
+@-webkit-keyframes FadeIn{
+    70% {
+        opacity: .0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#whiteTwo {
+    position: absolute;
+    top: 0px;
+    z-index: 4;
+    -webkit-animation-name: slideTopTwo;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 5s;
+}
+
+@-webkit-keyframes slideTopTwo{
+    0% {
+        left: 165px;
+    }
+    100% {
+        left: 700px;
+        top: 0px;
+        position:absolute;
+    }
+}
+
+#whiteThree {
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    -webkit-animation-name: slideTopThree;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 7s;
+}
+
+@-webkit-keyframes slideTopThree{
+    00% {
+        left: 265px;
+    }
+    100% {
+        left: 700px;
+        top: 0px;
+        position:absolute;
+    }
+}
+
+#desc {
+    font-family: "adelle-sans";
+    color: #647A88;
+    font-size: 15px;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 80px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+
+#github {
+    font-family: "adelle-sans";
+    border: 1px solid #647A88;
+    color: #647A88;
+    font-size: 30px;
+    margin-left: 290px;
+    margin-top: 80px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    float: right;
+}
+
+#github:hover{
+    background-color: #647A88;
+    color: white;
+}
+#github:active{
+    background-color: #415059;
+    color: white;
+}

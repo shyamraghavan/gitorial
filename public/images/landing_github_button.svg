@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="196px" height="52px" viewBox="0 0 196 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>gitorial 3</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <filter x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.576470588   0 0 0 0 0.48627451   0 0 0 0 0.4  0 0 0 0.7 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="170" height="28" rx="3"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <rect id="Rectangle-15" fill="#FFFFFF" sketch:type="MSShapeGroup" x="-354" y="-377" width="909" height="530"></rect>
+        <g id="sign-in-button" sketch:type="MSLayerGroup" transform="translate(11.000000, 10.000000)">
+            <g id="Rectangle-13" filter="url(#filter-1)">
+                <use fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
+                <use fill="none" xlink:href="#path-2"></use>
+            </g>
+            <g id="GitHub-Mark" transform="translate(7.000000, 4.000000)" fill="#413931" sketch:type="MSShapeGroup">
+                <path d="M9.99907916,0 C4.47773105,0 0,4.36089948 0,9.74071746 C0,14.0442131 2.86503576,17.6947398 6.83876117,18.9833369 C7.33908346,19.0724324 7.5214095,18.7716601 7.5214095,18.5133427 C7.5214095,18.2825314 7.512815,17.6696256 7.50790386,16.8570022 C4.72635747,17.4453918 4.13947635,15.5510644 4.13947635,15.5510644 C3.68458209,14.4257096 3.02894503,14.1261332 3.02894503,14.1261332 C2.12099819,13.5221967 3.09770097,13.5341559 3.09770097,13.5341559 C4.10141502,13.6029209 4.62936247,14.5381255 4.62936247,14.5381255 C5.52134811,16.0264401 6.97013414,15.5965091 7.53982627,15.3471611 C7.63068234,14.7181105 7.88913104,14.2887774 8.17459099,14.045409 C5.95414224,13.7996487 3.6195095,12.963705 3.6195095,9.23125821 C3.6195095,8.16809089 4.00933116,7.29806364 4.64900703,6.61758871 C4.546487,6.37123048 4.20332116,5.38041594 4.74722981,4.03979663 C4.74722981,4.03979663 5.5864207,3.77789152 7.4968538,5.03838461 C8.2949139,4.82192422 9.15006599,4.71429199 10.0003069,4.71010629 C10.849934,4.71429199 11.7050861,4.82192422 12.5037601,5.03838461 C14.4129654,3.77789152 15.2515424,4.03979663 15.2515424,4.03979663 C15.7966788,5.38041594 15.453513,6.37123048 15.350993,6.61758871 C15.9918966,7.29806364 16.3786488,8.16809089 16.3786488,9.23125821 C16.3786488,12.9732723 14.0403327,13.7966589 11.8131312,14.0376356 C12.1722582,14.3384079 12.4920961,14.932777 12.4920961,15.8416714 C12.4920961,17.1434236 12.4792044,18.1940338 12.4792044,18.5133427 C12.4792044,18.7740519 12.6596888,19.0772161 13.1673778,18.9821409 C17.1374198,17.691152 20,14.0430172 20,9.74071746 C20,4.36089948 15.5222689,0 9.99907916,0" id="Fill-1"></path>
+            </g>
+            <text id="Sign-in-with-Github" sketch:type="MSTextLayer" font-family="Avenir Next" font-size="15" font-weight="normal" fill="#4A4A4A">
+                <tspan x="32" y="20">Sign in with</tspan>
+                <tspan x="110.81" y="20" font-weight="420"> </tspan>
+                <tspan x="114.56" y="20" font-weight="526">Github</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
