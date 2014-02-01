@@ -124,6 +124,7 @@ app.get('/view/:id/:curStep', require('./routes/view')());
 app.get('/view/:id', require('./routes/view')());
 
 app.get('/github/getList/:repo', require('./routes/github_list')());
+app.get('/github/getStep/:repo/:step', require('./routes/github_step')());
 // delete
 app.delete('/delete', require('./routes/delete')());
 
