@@ -3,13 +3,25 @@ $git-color: #413931;
 $orial-color: #98591a;
 $blue-color: #647a88;
 
+@font-face
+{
+  font-family: "Menlo";
+  src: url(Menlo.ttf);
+}
+
 body
 {
 	padding-top: 70px;
+	font-family: "Menlo", sans-serif;
 }
 
 .jumbotron
 {
 	background-color: $blue-color;
 	color: $git-color;
+
+	h1
+	{
+		font-family: "Menlo", sans-serif;
+	}
 }
