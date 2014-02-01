@@ -15,6 +15,11 @@ body
 	font-family: "Menlo", sans-serif;
 }
 
+hr
+{
+	color: $book-color;
+}
+
 .logo
 {
 	width:42%;
@@ -34,7 +39,7 @@ body
 	h2
 	{
 		font-family: "Adelle-Sans", sans-serif;
-		color: $git-color;
+		border-top-color: $git-color;
 	}
 	
 }
