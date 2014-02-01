@@ -71,9 +71,22 @@ app.save = function () {
     app.compile(true, i);
   }
 
-  var compileds = [];
+  var data = {};
+  data.repo = app.repo;
+  data.title = app.repo;
   $('.preview').each(function(index) {
-    // TODO ACCUMULATE THE DATA
+    html = $(this).html();
+  });
+
+  $.ajax('/save', {
+    data: data,
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log('error: ' + textStatus + errorThrown);
+    },
+    success: function() {
+      console.log('Success!');
+    },
+    type: 'POST'
   });
 }
 
