@@ -5,14 +5,14 @@ color: white;
 
 a:hover {
 text-decoration: none;
-color: #eee;
+color: #afafaf;
 }
 
 body {
     position:absolute;
     left:50%;
     top:15%;
-    margin-left:-340px;
+    margin-left:-288px;
     margin-top:10px;
 }
 
@@ -135,10 +135,10 @@ body {
     font-family: "source-code-pro";
     background-color: #647A88;
     color: #647A88;
-    font-size: 40px;
-    margin-left: 60px;
+    font-size: 30px;
+    margin-left: 80px;
     padding-right: 10px;
-    margin-top: 80px;
+    margin-top: 100px;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 6px;
@@ -165,9 +165,9 @@ body {
   }
 }
 
+
 #github a :hover{
-    background-color: #647A88;
-    color: #eee;
+    color: #8e8e8e;
 }
 #github:active{
     background-color: #415059;
