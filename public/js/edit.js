@@ -74,8 +74,9 @@ app.save = function () {
   var data = {};
   data.repo = app.repo;
   data.title = app.repo;
+  data.steps = app.steps.length;
   $('.preview').each(function(index) {
-    html = $(this).html();
+    data.html = $(this).html();
   });
 
   $.ajax('/save', {
