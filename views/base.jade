@@ -11,6 +11,9 @@ html
         block head
 
     body(data-userid=(user && user.id) ? user.id : '')
+        include mixins/navbar
+        block nav
+
         block body
 
         script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
