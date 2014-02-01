@@ -24,15 +24,15 @@ block body
     div(class="container")
         div.tutorial
             != data
-        div(class="fb-comments"  data-href="http://gitorial.com/view/"+id+'/'+curStep data-numposts="5" data-colorscheme="light")
+        div(class="fb-comments"  data-href="http://gitorial.com/view/"+id+'/'+curStep data-numposts="5" data-width="800" data-colorscheme="light" order_by="reverse_time")
     div#fb-root
 
 block script
-    script. 
+    script.
         (function(d, s, id) {
            var js, fjs = d.getElementsByTagName(s)[0];
            if (d.getElementById(id)) return;
            js = d.createElement(s); js.id = id;
            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1417476798496527";
            fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));</script> 
+         }(document, 'script', 'facebook-jssdk'));</script>

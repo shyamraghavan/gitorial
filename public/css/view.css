@@ -1,11 +1,12 @@
 p {
 	font-family: "freight-text-pro", sans-serif;
-	font-size: 20px;
-	line-height: 28px;
+	font-size: 22px;
+	line-height: 30px;
 }
 
 h1 {
 	font-family: "Adelle-Sans", sans-serif;
+	font-weight: bold;
 }
 	
 .step {
@@ -58,13 +59,20 @@ body {
 	width: 50px;
 	height: 50px;
 	margin-top: 70px;
-	background-color: rgba(100,122,136,0.1);
+	background-color: white;
 	padding: 17px;
+	color: #647A88;
+	position: fixed;
+	border: 1px solid #647A88;
 }
 
 .tutorial {
-	text-align: justify;
+	text-align: left;
 	max-width: 800px;
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 40px;
+	margin-left: 40px;
 }
 
 .div-arrow {
@@ -76,4 +84,13 @@ body {
 .circle:hover {
 	color: #FFF;
 	background-color: #647A88;
+}
+
+.fb-comments {
+	margin-top: 300px;
+}
+
+.navbar.navbar-fixed-top,
+.navbar.navbar-static-top {
+    border-bottom: 1px solid #d5d5d5;
 }
