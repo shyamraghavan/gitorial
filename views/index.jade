@@ -7,7 +7,9 @@ block nav
 block head
 	if (user)
 		title= 'gitorial | ' + user.displayName+ '\'s profile'
+		link(rel="stylesheet" type="text/css" href="/css/main.css")
 	else
+		link(rel="stylesheet", type="text/css", href="/css/landing.css")
 		title gitorial | join!
 
 block body
@@ -25,5 +27,17 @@ block body
 
 		div.tutorials
 	else
-		p Hello World
+		
+		<img src="images/landing_logo.svg">
+		<img id="whiteOne" src="images/white.svg">
+		<img id="top" src="images/landing_branch_top.svg" style="position: absolute; left: 170px; top: 55px; z-index: 5">
+		<img id="whiteTwo" src="images/white.svg">
+		<img id="middle" src="images/landing_branch_middle.svg" style="position: absolute; left: 248px; top: 71px;z-index: 3">
+		<img id="whiteThree" src="images/white.svg">
+		<img id="bottom" src="images/landing_branch_bottom.svg" style="position: absolute; left: 349px; top: 89px; z-index: 1">
+		<img id="tagline2" src="images/landing_numbers.svg" style="position: absolute; left: 464px; top: 41px; z-index: 0">
+		<div id="tagline">code create teach
+		</div>
+		<div id="desc">make tutorials using github repos. build each step with a new commit. add details and instructions. share with friends. yolo, idk. "swag".</div>
+		<div id="github">sign in with github</div>
 block script
