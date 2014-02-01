@@ -8,13 +8,3 @@ body {
   padding-top: 70px;
   font-family: "Menlo", sans-serif;
 }
-
-/* line 19, ../sass/home.scss */
-.jumbotron {
-  background-color: #647a88;
-  color: #413931;
-}
-/* line 24, ../sass/home.scss */
-.jumbotron h1 {
-  font-family: "Adelle-Sans", sans-serif;
-}
