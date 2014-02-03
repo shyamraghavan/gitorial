@@ -1,4 +1,4 @@
-gitorial
+http://gitorial.com
 ========
 
 ● make tutorials using github repos.
