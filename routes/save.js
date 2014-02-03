@@ -20,7 +20,7 @@ module.exports = function(db) {
     });
 
     req.body.html.forEach(function(stepHTML, index, arr) {
-      console.log(step);
+      console.log(stepHTML);
       s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+(index+1)), Body: stepHTML}, function(err, data) {
         if (err)
           console.log(err);
