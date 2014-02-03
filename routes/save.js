@@ -19,13 +19,20 @@ module.exports = function(db) {
         console.log(err);
     });
 
-    for(var i = 1; i <= Number(meta.steps); i++) {
-      console.log(req.body.html);
-      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: req.body.html}, function(err, data) {
+    req.body.html.forEach(function(stepHTML, index, arr) {
+      console.log(step);
+      s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+(index+1)), Body: stepHTML}, function(err, data) {
         if (err)
           console.log(err);
       });
-    }
+    });
+//     for(var i = 1; i <= Number(meta.steps); i++) {
+//       console.log(req.body.html);
+//       s3.putObject({Bucket: 'gitorial', Key: (req.body.repo+'-'+i), Body: req.body.html}, function(err, data) {
+//         if (err)
+//           console.log(err);
+//       });
+//     }
 
     try {
       s3.getObject({Bucket: 'gitorial', Key: req.user.username}, function(error, data) {
