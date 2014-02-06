@@ -104,7 +104,6 @@ function getCommitsList(username, repo_name, res2, req2){
 module.exports = function(db) {
   return function (req, res) {
     var username_given = req.user.username;
-    var name_given = req.user.displayName;
     getCommitsList(req.user.username, req.param('repo'), res, req);
   }
 };
