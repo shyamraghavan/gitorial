@@ -53,7 +53,7 @@ app.compile = function(force, whichstep) {
         pane.scrollTop(bottom ? pane[0].scrollHeight : scroll);
       }]);
       // re-render Google prettyprint
-      $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + ' - ' + app.repo + '</div>');
+      $('#' + app.currentStep + ' .preview pre').addClass("prettyprint").before('<div class="pre-header"><p class="text-center">Step ' + app.currentStep + ' - ' + app.repo + '</p></div>');
       $('#' + app.currentStep + ' .preview pre code').addClass("prettyprint");
       prettyPrint();
       console.log("│ └── compiling successful.");

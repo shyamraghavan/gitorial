@@ -6,6 +6,10 @@ module.exports = function(db) {
     var params = {Bucket: 'gitorial', Key: (req.param("id")+".json")};
     try {
       s3.getObject(params, function(error, data) {
+        if(error) {
+          console.log(error);
+          return;
+        }
         makeView(req, res, JSON.parse(data.Body.toString()), s3);
       });
     } catch (err) {
